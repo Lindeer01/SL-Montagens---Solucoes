@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Preços | SL Montagens & Soluções",
+  title: "Preços | SL Montagens & Serviços",
 };
 
 export default function PrecosPage() {

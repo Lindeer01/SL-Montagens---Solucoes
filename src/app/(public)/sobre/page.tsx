@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sobre nós | SL Montagens & Soluções",
+  title: "Sobre nós | SL Montagens & Serviços",
 };
 
 export default function SobrePage() {

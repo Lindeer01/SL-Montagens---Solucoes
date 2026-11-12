@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Projetos | SL Montagens & Soluções",
+  title: "Projetos | SL Montagens & Serviços",
 };
 
 export default function ProjetosPage() {
