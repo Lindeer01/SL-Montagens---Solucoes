@@ -1,0 +1,21 @@
+.home-section {
+  padding-block: var(--space-9);
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-5);
+  margin-block: var(--space-7);
+}
+
+.home-text {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}

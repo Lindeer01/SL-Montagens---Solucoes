@@ -1,3 +1,51 @@
+:root {
+  /* Paleta oficial da empresa */
+  --color-blue-deep: #142b46;
+  --color-blue-tech: #3985c9;
+  --color-graphite: #20252c;
+  --color-gray: #737d89;
+  --color-gray-light: #dce2e8;
+  --color-ice: #f7f9fc;
+
+  /* Cores medidas na logo */
+  --color-brand: #0878d1;
+  --color-brand-dark: #0668b8;
+  --color-logo-gray: #96a1aa;
+  --color-logo-light: #d4dbe0;
+
+  /* Tons do tema escuro */
+  --color-bg: #111820;
+  --color-surface: #1a2029;
+  --color-border: rgba(220, 226, 232, 0.12);
+  --color-text: #f7f9fc;
+  --color-text-muted: #aab3be;
+
+  /* Tipografia (as fontes são carregadas em layout.tsx) */
+  --font-body: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: var(--font-sora), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Espaçamentos */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Bordas, sombras e animação */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --transition: 200ms ease;
+
+  /* Layout */
+  --container-max: 1200px;
+}
+
 *,
 *::before,
 *::after {
@@ -12,12 +60,57 @@ html {
 
 body {
   min-height: 100vh;
-  background: #142b46;
-  color: #f7f9fc;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-main {
-  padding: 2rem;
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-blue-tech);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
