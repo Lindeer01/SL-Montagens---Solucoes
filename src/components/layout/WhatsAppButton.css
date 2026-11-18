@@ -1,0 +1,58 @@
+.sl-whatsapp {
+  position: fixed;
+  right: max(var(--space-5), env(safe-area-inset-right));
+  bottom: max(var(--space-5), env(safe-area-inset-bottom));
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: 56px;
+  height: 56px;
+  padding: 0 var(--space-4);
+  background: #25d366;
+  color: #06301a;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+  animation: sl-whatsapp-pulse 2.6s ease-out infinite;
+  transition: transform var(--transition);
+}
+
+.sl-whatsapp:hover {
+  transform: translateY(-3px);
+}
+
+.sl-whatsapp__icon {
+  flex-shrink: 0;
+}
+
+/* No celular só o ícone; o nome acessível vem do aria-label */
+.sl-whatsapp__label {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .sl-whatsapp__label {
+    display: inline;
+  }
+}
+
+@keyframes sl-whatsapp-pulse {
+  0% {
+    box-shadow:
+      var(--shadow-md),
+      0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow:
+      var(--shadow-md),
+      0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow:
+      var(--shadow-md),
+      0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}

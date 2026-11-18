@@ -1,0 +1,26 @@
+.sl-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sl-content {
+  flex: 1;
+}
+
+/* Link invisível que aparece ao navegar com Tab (acessibilidade) */
+.sl-skip {
+  position: absolute;
+  left: var(--space-4);
+  top: -100px;
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-brand);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+
+.sl-skip:focus {
+  top: var(--space-4);
+}
