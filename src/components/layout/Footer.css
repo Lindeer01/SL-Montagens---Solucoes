@@ -76,3 +76,15 @@
     grid-template-columns: 1.5fr 1fr 1fr;
   }
 }
+
+/* Fase 7 */
+/* Espaço para o botão do WhatsApp não cobrir o texto do rodapé no celular */
+.sl-footer__bottom {
+  padding-bottom: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  .sl-footer__bottom {
+    padding-bottom: var(--space-5);
+  }
+}

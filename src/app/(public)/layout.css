@@ -24,3 +24,8 @@
 .sl-skip:focus {
   top: var(--space-4);
 }
+
+/* Fase 7 */
+.sl-shell {
+  min-height: 100dvh;
+}

@@ -114,3 +114,20 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Fase 7 */
+/* Altura certa no celular, onde a barra do navegador aparece e some */
+@supports (min-height: 100dvh) {
+  body {
+    min-height: 100dvh;
+  }
+}
+
+/* Palavras muito longas quebram em vez de estourar a tela */
+h1,
+h2,
+h3,
+h4,
+p {
+  overflow-wrap: break-word;
+}

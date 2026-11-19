@@ -80,7 +80,7 @@
 /* ---------- Sobre nós ---------- */
 .sl-about__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: var(--space-5);
 }
 
@@ -95,7 +95,7 @@
 
 .sl-page-diffs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: var(--space-6);
 }
 
@@ -118,7 +118,7 @@
 }
 
 .sl-svc-nav__link {
-  padding: 0.45rem 1rem;
+  padding: 0.65rem 1.1rem;
   border: 1px solid var(--color-border);
   border-radius: 999px;
   font-size: 0.9rem;
@@ -135,7 +135,7 @@
 
 .sl-svc-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: var(--space-5);
 }
 
@@ -233,7 +233,7 @@
 }
 
 .sl-gallery__filter {
-  padding: 0.45rem 1rem;
+  padding: 0.65rem 1.1rem;
   border: 1px solid var(--color-border);
   border-radius: 999px;
   background: transparent;
@@ -258,7 +258,7 @@
 
 .sl-gallery__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
   gap: var(--space-4);
 }
 
@@ -489,5 +489,22 @@ textarea.sl-form__control {
     align-items: center;
     justify-content: space-between;
     padding: var(--space-8) var(--space-7);
+  }
+}
+
+/* Fase 7 */
+/* Janela de ampliação das fotos em telas estreitas */
+.sl-lightbox__bar {
+  flex-wrap: wrap;
+}
+
+.sl-lightbox__info {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .sl-lightbox__stage {
+    height: 55vh;
   }
 }
