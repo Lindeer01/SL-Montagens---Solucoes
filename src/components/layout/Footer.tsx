@@ -6,7 +6,7 @@ import { getWhatsAppLink } from "@/lib/whatsapp";
 import "./Footer.css";
 
 export default function Footer() {
-  const { instagram, phone, email, address } = siteConfig;
+  const { instagram, phone, email, address, whatsappContacts } = siteConfig;
 
   return (
     <footer className="sl-footer">
@@ -40,16 +40,20 @@ export default function Footer() {
           <div>
             <h3 className="sl-footer__heading">Contato</h3>
             <ul className="sl-footer__list">
-              <li>
-                <a
-                  href={getWhatsAppLink()}
-                  className="sl-footer__link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Falar no WhatsApp
-                </a>
-              </li>
+              {whatsappContacts.map((contact) => (
+                <li key={contact.number}>
+                  <a
+                    href={getWhatsAppLink(undefined, contact.number)}
+                    className="sl-footer__link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {whatsappContacts.length > 1
+                      ? `WhatsApp ${contact.name}`
+                      : "Falar no WhatsApp"}
+                  </a>
+                </li>
+              ))}
               {instagram && (
                 <li>
                   <a

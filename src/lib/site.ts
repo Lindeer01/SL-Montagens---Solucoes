@@ -12,9 +12,18 @@ export const siteConfig = {
     "Montagem de móveis, instalação de iluminação LED e serviços elétricos relacionados na Grande Florianópolis.",
   region: "Grande Florianópolis – SC",
 
-  // TROCAR: número do WhatsApp com 55 + DDD + número, só dígitos (ex.: 5548999999999).
-  // Este valor é um placeholder e abre uma conversa com um número falso.
-  whatsapp: "5548900000000",
+  /*
+    TROCAR: contatos de WhatsApp.
+    "number": 55 + DDD + número, só dígitos (ex.: 5548999991234).
+    "name": o nome que aparece para o cliente (ex.: "Samuel").
+    O PRIMEIRO da lista é o principal: ele recebe os pedidos dos botões
+    "Pedir orçamento" do site. Para trocar o principal, inverta a ordem.
+    Estes números são placeholders e abrem conversas com números falsos.
+  */
+  whatsappContacts: [
+    { name: "Contato 1", number: "5548999086541" },
+    { name: "Contato 2", number: "5547992321041" },
+  ],
   whatsappMessage:
     "Olá! Vim pelo site da SL Montagens & Serviços e gostaria de solicitar um orçamento.",
 
