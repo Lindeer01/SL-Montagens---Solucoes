@@ -31,9 +31,39 @@ export type FeaturedProject = {
   alt: string;
 };
 
+export type Project = FeaturedProject & {
+  description?: string;
+};
+
 export type Testimonial = {
   id: string;
   name: string;
   text: string;
   detail?: string; // ex.: "Cliente em Palhoça"
+};
+
+export type PriceType = "fixed" | "starting" | "consult";
+
+export type ServicePrice = {
+  type: PriceType; // fixed = preço fixo, starting = a partir de, consult = sob consulta
+  value?: number; // em reais, ex.: 150 ou 149.9
+  note?: string; // observação exibida na página de preços
+};
+
+export type ServiceGroup = {
+  id: string;
+  title: string;
+  description: string;
+  icon: IconName;
+};
+
+export type Service = {
+  id: string;
+  groupId: string;
+  name: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  price?: ServicePrice;
+  published: boolean;
 };
