@@ -55,7 +55,10 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
               type="button"
               className="sl-gallery__filter"
               aria-pressed={item === category}
-              onClick={() => setCategory(item)}
+              onClick={() => {
+                setCategory(item);
+                setActive(null);
+              }}
             >
               {item}
             </button>
@@ -82,6 +85,9 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
             <span className="sl-gallery__caption">
               <strong>{project.title}</strong>
               <small>{project.category}</small>
+              {project.description && (
+                <span className="sl-gallery__desc">{project.description}</span>
+              )}
             </span>
           </button>
         ))}
@@ -128,7 +134,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
                       aria-label="Foto anterior"
                       onClick={() => go(-1)}
                     >
-                      ←
+                      &larr;
                     </button>
                     <button
                       type="button"
@@ -136,7 +142,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
                       aria-label="Próxima foto"
                       onClick={() => go(1)}
                     >
-                      →
+                      &rarr;
                     </button>
                   </>
                 )}
@@ -146,7 +152,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
                   aria-label="Fechar"
                   onClick={() => setActive(null)}
                 >
-                  ✕
+                  &times;
                 </button>
               </div>
             </div>

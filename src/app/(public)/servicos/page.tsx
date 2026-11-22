@@ -4,7 +4,8 @@ import PageHeader from "@/components/pages/PageHeader";
 import ServiceCard from "@/components/pages/ServiceCard";
 import Container from "@/components/ui/Container";
 import Icon from "@/components/ui/Icon";
-import { serviceGroups, services } from "@/lib/content";
+import { ProvisionalBadge } from "@/components/ui/Provisional";
+import { serviceGroups, services, servicesProvisional } from "@/lib/content";
 import "@/components/pages/pages.css";
 
 export const metadata: Metadata = {
@@ -28,10 +29,20 @@ export default function ServicosPage() {
       <PageHeader
         eyebrow="Serviços"
         title="O que fazemos"
-        subtitle="Montagem, iluminação e instalações para deixar o seu ambiente pronto, do jeito certo."
+        subtitle="Montagem de móveis, instalações de LED e serviços elétricos relacionados."
       />
 
       <Container>
+        {servicesProvisional && (
+          <div className="sl-callout" style={{ marginTop: "1.5rem" }}>
+            <ProvisionalBadge>Conteúdo provisório</ProvisionalBadge>
+            <p className="sl-muted" style={{ marginTop: "0.5rem" }}>
+              As descrições e as imagens dos serviços são provisórias e serão
+              substituídas pelo conteúdo real.
+            </p>
+          </div>
+        )}
+
         <nav className="sl-svc-nav" aria-label="Categorias de serviços">
           {groups.map((group) => (
             <a

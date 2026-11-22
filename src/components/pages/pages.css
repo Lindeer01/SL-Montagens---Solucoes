@@ -508,3 +508,141 @@ textarea.sl-form__control {
     height: 55vh;
   }
 }
+
+/* Paginas internas (conteudo provisorio) */
+
+/* Selo e espacos reservados de conteudo provisorio */
+.sl-provisional {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.2rem 0.65rem;
+  border: 1px dashed #f59e0b;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.12);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fbbf24;
+}
+
+.sl-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-4);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.025),
+    rgba(255, 255, 255, 0.025) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  text-align: center;
+}
+
+.sl-placeholder__label {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* Sobre: fotos */
+.sl-about__images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: var(--space-5);
+}
+
+.sl-about__image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.sl-about__image img {
+  object-fit: cover;
+}
+
+/* Servicos: imagem provisoria e informacoes complementares */
+.sl-svc__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.sl-svc__details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.sl-svc__details li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.sl-svc__details li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-brand);
+}
+
+/* Projetos: descricao no cartao e espacos reservados */
+.sl-gallery__desc {
+  display: -webkit-box;
+  margin-top: var(--space-1);
+  overflow: hidden;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-logo-light);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.sl-proj-ph {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sl-proj-ph__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* Contato: redes sociais e confirmacao do formulario */
+.sl-contact__socials {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.sl-form__success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid rgba(37, 211, 102, 0.5);
+  border-radius: var(--radius-lg);
+  background: rgba(37, 211, 102, 0.08);
+}

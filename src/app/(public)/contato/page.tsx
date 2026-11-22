@@ -12,13 +12,27 @@ import "@/components/pages/pages.css";
 export const metadata: Metadata = {
   title: "Contato | SL Montagens & Serviços",
   description:
-    "Fale com a SL Montagens & Serviços pelo WhatsApp e peça seu orçamento. Atendemos a Grande Florianópolis – SC.",
+    "Fale com a SL Montagens & Serviços pelo WhatsApp e peça seu orçamento. Atendemos a Grande Florianópolis - SC.",
 };
 
 export default function ContatoPage() {
   const { instagram, phone, email, address, region, whatsappContacts } =
     siteConfig;
   const { hours } = contactContent;
+
+  // Redes sociais: o Instagram vem do site.ts; as demais, do content.ts.
+  const socials = [
+    ...(instagram
+      ? [
+          {
+            id: "instagram",
+            name: "Instagram",
+            url: `https://instagram.com/${instagram}`,
+          },
+        ]
+      : []),
+    ...contactContent.socials.filter((item) => item.url !== ""),
+  ];
 
   return (
     <main>
@@ -53,20 +67,6 @@ export default function ContatoPage() {
                     ))}
                   </div>
                 </li>
-
-                {instagram && (
-                  <li className="sl-contact__item">
-                    <span className="sl-contact__label">Instagram</span>
-                    <a
-                      href={`https://instagram.com/${instagram}`}
-                      className="sl-contact__link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      @{instagram}
-                    </a>
-                  </li>
-                )}
 
                 {phone && (
                   <li className="sl-contact__item">
@@ -107,6 +107,26 @@ export default function ContatoPage() {
                   <li className="sl-contact__item">
                     <span className="sl-contact__label">Horários</span>
                     <span>{hours}</span>
+                  </li>
+                )}
+
+                {socials.length > 0 && (
+                  <li className="sl-contact__item">
+                    <span className="sl-contact__label">Redes sociais</span>
+                    <ul className="sl-contact__socials">
+                      {socials.map((item) => (
+                        <li key={item.id}>
+                          <a
+                            href={item.url}
+                            className="sl-contact__link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {item.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 )}
               </ul>

@@ -2,17 +2,10 @@
 
 import { useState } from "react";
 import Button from "@/components/ui/Button";
-import { services } from "@/lib/content";
+import { contactContent, services } from "@/lib/content";
+import { sendContactMessage } from "@/lib/contact";
 import { siteConfig } from "@/lib/site";
-import { getWhatsAppLink } from "@/lib/whatsapp";
-
-type Values = {
-  name: string;
-  phone: string;
-  service: string;
-  message: string;
-  contact: string; // número do WhatsApp que vai receber a mensagem
-};
+import type { ContactMessage } from "@/types/content";
 
 type Errors = {
   name?: string;
@@ -20,10 +13,12 @@ type Errors = {
   message?: string;
 };
 
+type Status = "idle" | "sending" | "success" | "error";
+
 const GENERAL = "Orçamento geral";
 const contacts = siteConfig.whatsappContacts;
 
-const initialValues: Values = {
+const initialValues: ContactMessage = {
   name: "",
   phone: "",
   service: GENERAL,
@@ -31,7 +26,7 @@ const initialValues: Values = {
   contact: contacts[0].number,
 };
 
-function validate(values: Values): Errors {
+function validate(values: ContactMessage): Errors {
   const errors: Errors = {};
 
   if (values.name.trim().length < 2) {
@@ -52,16 +47,17 @@ function validate(values: Values): Errors {
 }
 
 export default function ContactForm() {
-  const [values, setValues] = useState<Values>(initialValues);
+  const [values, setValues] = useState<ContactMessage>(initialValues);
   const [errors, setErrors] = useState<Errors>({});
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const serviceNames = services
     .filter((service) => service.published)
     .map((service) => service.name);
 
   const handleChange =
-    (field: keyof Values) =>
+    (field: keyof ContactMessage) =>
     (
       event: React.ChangeEvent<
         HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -70,33 +66,40 @@ export default function ContactForm() {
       setValues((current) => ({ ...current, [field]: event.target.value }));
     };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const found = validate(values);
     setErrors(found);
     if (Object.keys(found).length > 0) {
-      setSent(false);
+      setStatus("idle");
       return;
     }
 
-    const lines = [
-      `Olá! Meu nome é ${values.name.trim()}.`,
-      `Serviço: ${values.service}`,
-      "",
-      values.message.trim(),
-    ];
-    if (values.phone.trim()) {
-      lines.push("", `Meu telefone: ${values.phone.trim()}`);
-    }
+    setStatus("sending");
+    const result = await sendContactMessage(values);
 
-    window.open(
-      getWhatsAppLink(lines.join("\n"), values.contact),
-      "_blank",
-      "noopener,noreferrer",
-    );
-    setSent(true);
+    if (result.ok) {
+      setStatus("success");
+      setValues(initialValues);
+    } else {
+      setErrorMessage(result.error ?? "Não foi possível enviar a mensagem.");
+      setStatus("error");
+    }
   };
+
+  // Tela de confirmação depois do envio.
+  if (status === "success") {
+    return (
+      <div className="sl-form__success" role="status">
+        <h3>{contactContent.successTitle}</h3>
+        <p className="sl-muted">{contactContent.successMessage}</p>
+        <Button variant="secondary" onClick={() => setStatus("idle")}>
+          Enviar outra mensagem
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <form className="sl-form" onSubmit={handleSubmit} noValidate>
@@ -200,13 +203,13 @@ export default function ContactForm() {
         )}
       </div>
 
-      <Button type="submit" size="lg">
-        Enviar pelo WhatsApp
+      <Button type="submit" size="lg" disabled={status === "sending"}>
+        {status === "sending" ? "Enviando..." : "Enviar mensagem"}
       </Button>
 
-      {sent && (
-        <p className="sl-form__hint" role="status">
-          Abrimos o WhatsApp com a sua mensagem pronta. É só enviar.
+      {status === "error" && (
+        <p className="sl-form__error" role="alert">
+          {errorMessage}
         </p>
       )}
     </form>

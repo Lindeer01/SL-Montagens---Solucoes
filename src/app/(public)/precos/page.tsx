@@ -3,15 +3,20 @@ import PageCta from "@/components/pages/PageCta";
 import PageHeader from "@/components/pages/PageHeader";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import {
+  pricesNotice,
+  pricesUndefinedMessage,
+  serviceGroups,
+  services,
+} from "@/lib/content";
 import { formatPrice } from "@/lib/format";
-import { pricesNotice, serviceGroups, services } from "@/lib/content";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import "@/components/pages/pages.css";
 
 export const metadata: Metadata = {
   title: "Preços | SL Montagens & Serviços",
   description:
-    "Consulte os valores dos serviços de montagem, iluminação LED e instalações elétricas da SL Montagens & Serviços.",
+    "Consulte as condições de orçamento dos serviços de montagem, iluminação LED e instalações elétricas da SL Montagens & Serviços.",
 };
 
 export default function PrecosPage() {
@@ -24,18 +29,27 @@ export default function PrecosPage() {
     }))
     .filter((group) => group.items.length > 0);
 
+  // Algum serviço publicado já tem valor definido?
+  const hasPrices = services.some(
+    (service) =>
+      service.published &&
+      service.price !== undefined &&
+      service.price.type !== "consult" &&
+      service.price.value !== undefined,
+  );
+
   return (
     <main>
       <PageHeader
         eyebrow="Preços"
-        title="Valores dos serviços"
-        subtitle="Transparência para você planejar o seu serviço."
+        title="Valores e orçamento"
+        subtitle="Peça o seu orçamento pelo WhatsApp."
       />
 
       <section className="sl-page-section">
         <Container>
           <div className="sl-callout">
-            <p>{pricesNotice}</p>
+            <p>{hasPrices ? pricesNotice : pricesUndefinedMessage}</p>
           </div>
         </Container>
       </section>
