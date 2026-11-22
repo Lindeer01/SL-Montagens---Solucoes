@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 
@@ -18,6 +18,18 @@ export const metadata: Metadata = {
   title: "SL Montagens & Serviços",
   description:
     "Montagem de móveis, instalação de LED e serviços elétricos na Grande Florianópolis. Precisão em cada detalhe.",
+  applicationName: "SL Montagens",
+  // Nome que aparece embaixo do ícone na tela inicial do iPhone.
+  appleWebApp: {
+    capable: true,
+    title: "SL Montagens",
+    statusBarStyle: "black",
+  },
+};
+
+// Cor da barra do navegador no celular (igual ao fundo da logo).
+export const viewport: Viewport = {
+  themeColor: "#111820",
 };
 
 export default function RootLayout({
