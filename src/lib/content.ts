@@ -122,12 +122,12 @@ export const aboutContent: {
   images: AboutImage[];
 } = {
   who: {
-    text: "A SL Montagens & Serviços atua na Grande Florianópolis - SC com montagem de móveis, instalação de iluminação LED e serviços elétricos relacionados. Nosso lema resume o nosso jeito de trabalhar: precisão em cada detalhe. Do guarda-roupa à fita de LED, o objetivo é deixar o seu ambiente pronto, bonito e funcionando exatamente como você imaginou.",
+    text: "A SL Montagens & Serviços atua na Grande Florianópolis - SC com montagem de móveis, instalação de iluminação LED e serviços elétricos relacionados. A empresa é conduzida por Sandro Linder e Lucas Schramm, que gostam de fazer cada serviço com atenção aos detalhes, como se fosse para eles mesmos. Nosso lema resume o nosso jeito de trabalhar: precisão em cada detalhe.",
     provisional: false,
   },
   history: {
-    text: "Em breve: a história da SL Montagens & Serviços. Aqui vamos contar como a empresa começou, quem são os responsáveis e como o trabalho foi crescendo.",
-    provisional: true,
+    text: "A SL Montagens & Serviços começou de uma conversa no WhatsApp, quando Sandro Linder e Lucas Schramm decidiram trabalhar juntos. Dessa parceria surgiu a empresa, que hoje realiza principalmente montagens de móveis em geral e instalações de LED. O nosso jeito de trabalhar é simples: somos muito atentos aos detalhes e gostamos de fazer tudo com perfeição, como se fosse para nós mesmos.",
+    provisional: false,
   },
   mission: {
     text: "Entregar montagens e instalações com precisão, qualidade e pontualidade, tratando cada ambiente com o cuidado que ele merece.",
