@@ -21,8 +21,8 @@ export const siteConfig = {
     Estes números são placeholders e abrem conversas com números falsos.
   */
   whatsappContacts: [
-    { name: "Contato 1", number: "5548999086541" },
-    { name: "Contato 2", number: "5547992321041" },
+    { name: "Sandro", number: "5548999086541" },
+    { name: "Lucas", number: "5547992321041" },
   ],
   whatsappMessage:
     "Olá! Vim pelo site da SL Montagens & Serviços e gostaria de solicitar um orçamento.",
