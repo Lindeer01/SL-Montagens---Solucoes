@@ -3,8 +3,7 @@
   Por enquanto fica neste arquivo. Na fase do Supabase, estes dados
   passam a vir do banco e o painel admin podera edita-los.
 
-  Tudo que esta marcado como "provisional" ou "PROVISORIO" e um texto
-  de partida: substitua pelo conteudo real da empresa.
+  Itens com "provisional: true" ainda precisam de informacao real da empresa.
 */
 
 import { siteConfig } from "@/lib/site";
@@ -27,7 +26,7 @@ export const heroContent = {
   eyebrow: siteConfig.region,
   titleStart: "Montagem de móveis e instalações com ",
   titleHighlight: "precisão em cada detalhe",
-  text: "Montagem de móveis, instalação de iluminação LED e serviços elétricos relacionados, com atendimento direto pelo WhatsApp.",
+  text: "Montagem de móveis, instalação de iluminação LED e serviços elétricos relacionados, feitos com atenção ao detalhe e compromisso com o prazo. Peça o seu orçamento direto pelo WhatsApp.",
   tags: ["Montagem de móveis", "Iluminação LED", "Serviços elétricos"],
 };
 
@@ -35,7 +34,8 @@ export const serviceCategories: ServiceCategory[] = [
   {
     id: "moveis",
     title: "Montagem de móveis",
-    description: "Montagem de móveis em geral.",
+    description:
+      "Do guarda-roupa à cozinha, a montagem feita com atenção ao alinhamento e ao acabamento.",
     icon: "furniture",
     items: [
       "Guarda-roupas",
@@ -48,14 +48,16 @@ export const serviceCategories: ServiceCategory[] = [
   {
     id: "led",
     title: "Iluminação LED",
-    description: "Instalação de iluminação LED.",
+    description:
+      "Fitas, perfis e iluminação LED instalados para destacar cada ambiente.",
     icon: "led",
     items: ["Instalação de iluminação LED", "Fitas LED", "Perfis LED"],
   },
   {
     id: "eletrica",
     title: "Serviços elétricos",
-    description: "Instalações elétricas relacionadas aos serviços oferecidos.",
+    description:
+      "Instalações elétricas relacionadas à montagem e à iluminação, para o serviço ficar completo.",
     icon: "electric",
     items: [
       "Instalações elétricas relacionadas aos serviços",
@@ -68,25 +70,25 @@ export const differentials: Differential[] = [
   {
     id: "precisao",
     title: "Precisão nos detalhes",
-    text: "Atenção a cada detalhe de cada serviço.",
+    text: "Cada serviço é feito com atenção às medidas, ao alinhamento e ao acabamento.",
     icon: "precision",
   },
   {
     id: "pontualidade",
     title: "Compromisso com prazos",
-    text: "Compromisso com a pontualidade nos serviços.",
+    text: "Pontualidade é compromisso: combinamos o horário e trabalhamos para cumpri-lo.",
     icon: "clock",
   },
   {
     id: "qualidade",
-    title: "Qualidade",
-    text: "Compromisso com a qualidade do que entregamos.",
+    title: "Qualidade do início ao fim",
+    text: "Cuidado com o móvel, com a instalação e com o seu ambiente em todas as etapas.",
     icon: "quality",
   },
   {
     id: "atendimento",
     title: "Atendimento direto",
-    text: "Peça seu orçamento pelo WhatsApp.",
+    text: "Converse direto com a equipe pelo WhatsApp e peça o seu orçamento de forma simples.",
     icon: "chat",
   },
 ];
@@ -120,45 +122,45 @@ export const aboutContent: {
   images: AboutImage[];
 } = {
   who: {
-    text: "A SL Montagens & Serviços atua com montagem de móveis, instalação de iluminação LED e serviços elétricos relacionados, atendendo a Grande Florianópolis - SC. Nosso lema é: precisão em cada detalhe.",
-    provisional: true,
+    text: "A SL Montagens & Serviços atua na Grande Florianópolis - SC com montagem de móveis, instalação de iluminação LED e serviços elétricos relacionados. Nosso lema resume o nosso jeito de trabalhar: precisão em cada detalhe. Do guarda-roupa à fita de LED, o objetivo é deixar o seu ambiente pronto, bonito e funcionando exatamente como você imaginou.",
+    provisional: false,
   },
   history: {
-    text: "PROVISÓRIO: aqui entra a história da empresa (como começou, quem são os responsáveis, como o trabalho evoluiu). Substitua este texto pelo conteúdo real.",
+    text: "Em breve: a história da SL Montagens & Serviços. Aqui vamos contar como a empresa começou, quem são os responsáveis e como o trabalho foi crescendo.",
     provisional: true,
   },
   mission: {
-    text: "PROVISÓRIO: aqui entra a missão da empresa. Substitua este texto pelo conteúdo real.",
-    provisional: true,
+    text: "Entregar montagens e instalações com precisão, qualidade e pontualidade, tratando cada ambiente com o cuidado que ele merece.",
+    provisional: false,
   },
   commitment: {
-    text: "Qualidade e pontualidade são compromissos da SL Montagens & Serviços em cada serviço realizado.",
-    provisional: true,
+    text: "Qualidade e pontualidade são compromissos em cada serviço: combinamos os detalhes com você, trabalhamos para respeitar o prazo combinado e cuidamos do seu ambiente do início ao fim.",
+    provisional: false,
   },
-  valuesProvisional: true,
+  valuesProvisional: false,
   values: [
     {
       id: "precisao",
       title: "Precisão",
-      text: "Atenção a cada detalhe de cada serviço.",
+      text: "Medidas, alinhamento e acabamento conferidos com atenção em cada serviço.",
       icon: "precision",
     },
     {
       id: "qualidade",
       title: "Qualidade",
-      text: "Compromisso com a qualidade do que entregamos.",
+      text: "Cuidado com o que entregamos e com o ambiente de cada cliente.",
       icon: "quality",
     },
     {
       id: "pontualidade",
       title: "Pontualidade",
-      text: "Compromisso com os prazos combinados.",
+      text: "Compromisso com o horário e o prazo combinados.",
       icon: "clock",
     },
     {
       id: "atendimento",
       title: "Atendimento direto",
-      text: "Contato principal pelo WhatsApp.",
+      text: "Contato direto pelo WhatsApp, sem complicação.",
       icon: "chat",
     },
   ],
@@ -173,7 +175,7 @@ export const aboutContent: {
 /* ---------- Servicos e precos ---------- */
 
 /* true = mostra, na pagina Servicos, o aviso de conteudo provisorio. */
-export const servicesProvisional = true;
+export const servicesProvisional = false;
 
 /* Informacoes complementares mostradas em todo servico que nao tiver "details". */
 export const serviceDefaultDetails = [
@@ -185,7 +187,7 @@ export const serviceGroups: ServiceGroup[] = [
   {
     id: "moveis",
     title: "Montagem de móveis",
-    description: "Serviços de montagem de móveis.",
+    description: "Montagem de móveis para casa e escritório.",
     icon: "furniture",
   },
   {
@@ -221,49 +223,54 @@ export const services: Service[] = [
     id: "montagem-moveis",
     groupId: "moveis",
     name: "Montagem de móveis",
-    description: "Montagem de móveis em geral.",
+    description:
+      "Montagem de móveis em geral, com atenção ao alinhamento, às medidas e ao acabamento.",
     published: true,
   },
   {
     id: "montagem-guarda-roupas",
     groupId: "moveis",
     name: "Montagem de guarda-roupas",
-    description: "Montagem de guarda-roupas.",
+    description:
+      "Montagem de guarda-roupas, com portas, gavetas e prateleiras bem ajustadas.",
     published: true,
   },
   {
     id: "montagem-cozinhas",
     groupId: "moveis",
     name: "Montagem de cozinhas",
-    description: "Montagem de cozinhas.",
+    description:
+      "Montagem de cozinhas, com armários e módulos bem alinhados e nivelados.",
     published: true,
   },
   {
     id: "montagem-paineis-racks",
     groupId: "moveis",
     name: "Montagem de painéis e racks",
-    description: "Montagem de painéis e racks.",
+    description:
+      "Montagem de painéis e racks para a sala, com fixação cuidadosa.",
     published: true,
   },
   {
     id: "montagem-camas-comodas",
     groupId: "moveis",
     name: "Montagem de camas e cômodas",
-    description: "Montagem de camas e cômodas.",
+    description: "Montagem de camas e cômodas, com cuidado do início ao fim.",
     published: true,
   },
   {
     id: "iluminacao-led",
     groupId: "led",
     name: "Instalação de iluminação LED",
-    description: "Instalação de iluminação LED.",
+    description: "Instalação de iluminação LED para valorizar o ambiente.",
     published: true,
   },
   {
     id: "fitas-perfis-led",
     groupId: "led",
     name: "Instalação de fitas e perfis LED",
-    description: "Instalação de fitas e perfis LED.",
+    description:
+      "Instalação de fitas e perfis LED, para um acabamento limpo e uniforme.",
     published: true,
   },
   {
@@ -271,7 +278,7 @@ export const services: Service[] = [
     groupId: "eletrica",
     name: "Instalações elétricas",
     description:
-      "Instalações elétricas relacionadas aos serviços oferecidos.",
+      "Instalações elétricas relacionadas aos serviços de montagem e iluminação.",
     published: true,
   },
   {
@@ -279,7 +286,7 @@ export const services: Service[] = [
     groupId: "outros",
     name: "Outros serviços",
     description:
-      "Precisa de outro serviço? Conte o que você precisa pelo WhatsApp.",
+      "Precisa de outro serviço? Conte o que você precisa pelo WhatsApp e avaliamos juntos.",
     published: true,
   },
 ];
