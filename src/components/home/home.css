@@ -23,7 +23,7 @@
   height: 52px;
   border-radius: var(--radius-md);
   background: rgba(8, 120, 209, 0.15);
-  color: var(--color-blue-tech);
+  color: var(--color-blue-text);
 }
 
 @keyframes sl-fade-up {
@@ -68,7 +68,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-blue-tech);
+  color: var(--color-blue-text);
 }
 
 .sl-hero__title {
@@ -208,7 +208,7 @@
   gap: var(--space-2);
   margin-top: auto;
   font-weight: 600;
-  color: var(--color-blue-tech);
+  color: var(--color-blue-text);
   transition: gap var(--transition);
 }
 
@@ -269,7 +269,7 @@
 
 .sl-project__category {
   font-size: 0.8rem;
-  color: var(--color-blue-tech);
+  color: var(--color-blue-text);
 }
 
 /* ---------- Depoimentos ---------- */

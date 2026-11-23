@@ -2,6 +2,7 @@
   /* Paleta oficial da empresa */
   --color-blue-deep: #142b46;
   --color-blue-tech: #3985c9;
+  --color-blue-text: #6aaee6; /* azul claro para texto pequeno */
   --color-graphite: #20252c;
   --color-gray: #737d89;
   --color-gray-light: #dce2e8;
@@ -130,4 +131,15 @@ h3,
 h4,
 p {
   overflow-wrap: break-word;
+}
+
+/* Fase 8 acessibilidade */
+/* Para quem pede menos movimento: as animacoes rodam uma unica vez */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
 
           <nav aria-label="Rodapé">
-            <h3 className="sl-footer__heading">Navegação</h3>
+            <h2 className="sl-footer__heading">Navegação</h2>
             <ul className="sl-footer__list">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -38,7 +38,7 @@ export default function Footer() {
           </nav>
 
           <div>
-            <h3 className="sl-footer__heading">Contato</h3>
+            <h2 className="sl-footer__heading">Contato</h2>
             <ul className="sl-footer__list">
               {whatsappContacts.map((contact) => (
                 <li key={contact.number}>

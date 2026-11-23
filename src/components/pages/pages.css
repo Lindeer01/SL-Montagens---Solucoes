@@ -20,7 +20,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-blue-tech);
+  color: var(--color-blue-text);
 }
 
 .sl-page-header__title {
@@ -63,7 +63,7 @@
   height: 52px;
   border-radius: var(--radius-md);
   background: rgba(8, 120, 209, 0.15);
-  color: var(--color-blue-tech);
+  color: var(--color-blue-text);
 }
 
 .sl-muted {
@@ -163,13 +163,13 @@
   place-items: center;
   width: 100%;
   height: 100%;
-  color: var(--color-blue-tech);
+  color: var(--color-blue-text);
   background: linear-gradient(135deg, rgba(8, 120, 209, 0.18), transparent);
 }
 
 .sl-svc__category {
   font-size: 0.8rem;
-  color: var(--color-blue-tech);
+  color: var(--color-blue-text);
 }
 
 .sl-svc__title {
@@ -208,7 +208,7 @@
 
 .sl-price-row__note {
   font-size: 0.85rem;
-  color: var(--color-blue-tech);
+  color: var(--color-blue-text);
 }
 
 .sl-price-row__value {
@@ -391,7 +391,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-blue-tech);
+  color: var(--color-blue-text);
 }
 
 .sl-contact__link {
@@ -399,7 +399,7 @@
 }
 
 .sl-contact__link:hover {
-  color: var(--color-blue-tech);
+  color: var(--color-blue-text);
 }
 
 @media (min-width: 900px) {
